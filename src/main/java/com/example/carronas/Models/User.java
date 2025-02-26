@@ -33,7 +33,8 @@ public class User {
     public User() {
     }
 
-    public User(UUID id, String nome, String cidade, String email, String cpf, boolean aluno, int num_matricula) {
+    public User(UUID id, String nome, String cidade, String email, String cpf, boolean aluno,
+                int num_matricula) {
         this.id = id;
         this.nome = nome;
         this.cidade = cidade;
@@ -41,6 +42,19 @@ public class User {
         this.cpf = cpf;
         this.aluno = aluno;
         this.num_matricula = num_matricula;
+    }
+
+    public User(UUID id, String nome, String cidade, String email, String cpf, boolean aluno,
+                int num_matricula, List<Carrona> carronasDono, Carrona carronaAtual) {
+        this.id = id;
+        this.nome = nome;
+        this.cidade = cidade;
+        this.email = email;
+        this.cpf = cpf;
+        this.aluno = aluno;
+        this.num_matricula = num_matricula;
+        this.carronasDono = carronasDono;
+        this.carronaAtual = carronaAtual;
     }
 
     public UUID getId() {
@@ -97,5 +111,21 @@ public class User {
 
     public void setNum_matricula(int num_matricula) {
         this.num_matricula = num_matricula;
+    }
+
+    public List<Carrona> getCarronasDono() {
+        return carronasDono;
+    }
+
+    public void setCarronasDono(List<Carrona> carronasDono) {
+        this.carronasDono = carronasDono;
+    }
+
+    public Carrona getCarronaAtual() {
+        return carronaAtual;
+    }
+
+    public void setCarronaAtual(Carrona carronaAtual) {
+        this.carronaAtual = carronaAtual;
     }
 }
