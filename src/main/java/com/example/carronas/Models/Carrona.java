@@ -11,9 +11,6 @@ public class Carrona {
     @Id
     UUID id;
 
-    @ManyToOne
-    User dono;
-
     @ManyToMany
     @JoinTable(
             name = "carronas_cidades",
@@ -32,9 +29,8 @@ public class Carrona {
     public Carrona() {
     }
 
-    public Carrona(UUID id, User dono, List<Cidade> cidades, List<User> passageiros, String descricao) {
+    public Carrona(UUID id, List<Cidade> cidades, List<User> passageiros, String descricao) {
         this.id = id;
-        this.dono = dono;
         this.cidades = cidades;
         this.passageiros = passageiros;
         this.descricao = descricao;
@@ -46,14 +42,6 @@ public class Carrona {
 
     public void setId(UUID id) {
         this.id = id;
-    }
-
-    public User getDono() {
-        return dono;
-    }
-
-    public void setDono(User dono) {
-        this.dono = dono;
     }
 
     public List<Cidade> getCidades() {
