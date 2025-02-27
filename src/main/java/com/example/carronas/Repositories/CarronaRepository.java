@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-public interface CarronaRepository extends JpaRepository<UUID, Carrona> {
+public interface CarronaRepository extends JpaRepository<Carrona,UUID> {
 }
