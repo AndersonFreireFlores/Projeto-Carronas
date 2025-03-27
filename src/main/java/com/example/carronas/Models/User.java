@@ -2,15 +2,15 @@ package com.example.carronas.Models;
 
 import jakarta.persistence.*;
 
-import java.util.List;
 import java.util.UUID;
+
 
 @Entity
 @Table(name = "tb_user")
 public class User {
 
     @Id
-    UUID id;
+     UUID id;
 
     String nome;
 
@@ -23,8 +23,6 @@ public class User {
     boolean aluno;
 
     int num_matricula;
-
-
 
     @ManyToOne
     Carrona carronaAtual;
