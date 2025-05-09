@@ -21,24 +21,17 @@ public class UserService {
 
     private final UserMapper mapper;
 
-    private final CarronaMapper carronaMapper;
 
-    private final CarronaRepository carronaRepository;
-
-    public UserService(UserRepository repository, UserMapper mapper, CarronaMapper carronaMapper, CarronaRepository carronaRepository) {
+    public UserService(UserRepository repository, UserMapper mapper) {
         this.repository = repository;
         this.mapper = mapper;
-        this.carronaMapper = carronaMapper;
-        this.carronaRepository = carronaRepository;
     }
 
-    @Transactional
     public List<UserDto> getAllUsers(){
         List<User> list = repository.findAll();
         return list.stream().map(mapper::toDto).toList();
     }
 
-    @Transactional
     public UserDto getByID(UUID id){
         User user = repository.findById(id).orElseThrow
                 (() -> new RuntimeException("User not found. id: "+id));
@@ -62,21 +55,11 @@ public class UserService {
         userAntigo.setCidade(userAntigo.getCidade());
         userAntigo.setAluno(userAtualizado.isAluno());
 
-        updateCarrona(userAntigo.getId(), carronaId);
-
         repository.save(userAntigo);
         return userAntigo;
     }
 
-    @Transactional
-    public void updateCarrona(UUID userId, UUID carronaId){
-        User userAntigo = repository.findById(userId).orElseThrow
-                (() -> new RuntimeException("User not found. id: "+userId));
-        Carrona carrona = carronaRepository.findById(carronaId).orElseThrow
-                (() -> new RuntimeException("Carrona not found. id: "+carronaId));
 
-        userAntigo.setCarronaAtual(carrona);
-    }
 
     @Transactional
     public void deleteUser(UUID id){
