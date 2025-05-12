@@ -37,11 +37,6 @@ public class UserController {
         return service.updateUser(user, carronaID);
     }
 
-    @PutMapping(path = "/user_carrona/{userId}/{carronaId}")
-    public void putUserCarrona(@RequestParam UUID userId, @RequestParam UUID carronaID) {
-        service.updateCarrona(userId, carronaID);
-    }
-
     @DeleteMapping(path = "/users/{id}")
     public void deleteUser(@RequestParam UUID id){
         service.deleteUser(id);

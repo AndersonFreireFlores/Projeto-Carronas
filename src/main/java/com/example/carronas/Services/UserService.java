@@ -59,10 +59,10 @@ public class UserService {
         return userAntigo;
     }
 
-
-
     @Transactional
     public void deleteUser(UUID id){
         repository.deleteById(id);
     }
+
+
 }

@@ -32,8 +32,8 @@ public class CidadeService {
     }
 
     @Transactional
-    public void save(CidadeDto cidadeDto){
-        repository.save(mapper.toEntity(cidadeDto));
+    public void save(Cidade cidade){
+        repository.save(cidade);
     }
 
     @Transactional

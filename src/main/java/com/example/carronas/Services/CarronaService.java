@@ -11,13 +11,13 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-public class CarronaServie {
+public class CarronaService {
 
     private final CarronaRepository repository;
 
     private final CarronaMapper mapper;
 
-    public CarronaServie(CarronaRepository repository, CarronaMapper mapper) {
+    public CarronaService(CarronaRepository repository, CarronaMapper mapper) {
         this.repository = repository;
         this.mapper = mapper;
     }
